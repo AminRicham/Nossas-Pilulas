@@ -1,4 +1,4 @@
-package com.example.nossaspilulas.ui.theme
+package com.example.nossaspilulas
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.nossaspilulas.remedio.Remedio
+import com.example.nossaspilulas.ui.theme.NossasPilulasTheme
 
 @Preview(showBackground = true)
 @Composable
@@ -42,7 +44,7 @@ fun PaginaInicial(modifier: Modifier = Modifier) {
         Column(modifier = Modifier
             .fillMaxSize()
             .wrapContentSize(Alignment.BottomCenter)) {
-            ButtonAdicionarRemedio(modifier = Modifier
+            AdicionaRemedio(modifier = Modifier
                 .fillMaxSize()
                 .wrapContentSize(Alignment.Center)
             )
@@ -78,9 +80,9 @@ fun ListaRemedios(modifier: Modifier = Modifier){
 }
 
 @Composable
-fun ButtonAdicionarRemedio(modifier: Modifier = Modifier){
+fun AdicionaRemedio(modifier: Modifier = Modifier){
     Button(onClick = { /*TODO*/ }) {
         Text("Adicionar Remedio")
-
     }
+    val listaRemedio = mutableListOf<Remedio>()
 }

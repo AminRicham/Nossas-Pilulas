@@ -1,4 +1,4 @@
-package com.example.nossaspilulas.ui.theme
+package com.example.nossaspilulas
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
