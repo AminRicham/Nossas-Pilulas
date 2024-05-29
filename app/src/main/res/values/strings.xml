@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">NossasPilulas</string>
+    <string name="Label_nome">Insira o nome</string>
+    <string name="Label_intervalo">Intervalo</string>
+    <string name="Label_dose">Dose</string>
+    <string name="Label_dias">Dias</string>
+    <string name="Label_descricao">Descrição</string>
+    <string name="Label_comprimidosCaixa">Comprimidos na Caixa</string>
+
 </resources>

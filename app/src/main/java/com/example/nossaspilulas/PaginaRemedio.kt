@@ -7,9 +7,9 @@ import com.example.nossaspilulas.remedio.Remedio
 
 @Composable
 fun Pagina_de_Remedios(modifier: Modifier = Modifier){
-    var remedio = Remedio(
-        "nome", 0, 0F, 0, "desc", 0)
-    Column {
+//    var remedio = Remedio(
+ //       "nome", 0, 0F, 0, "desc", 0)
+  //  Column {
 
     }
-}
+//}
