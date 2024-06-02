@@ -11,14 +11,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.nossaspilulas.remedio.Remedio
+import androidx.navigation.NavHostController
 import com.example.nossaspilulas.ui.theme.NossasPilulasTheme
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.compose.ui.tooling.preview.Preview
 
-@Preview(showBackground = true)
 @Composable
-fun PaginaInicial(modifier: Modifier = Modifier) {
+fun PaginaInicial(onAdicionarRemedioButtonClicked: () -> Unit,
+                  modifier: Modifier = Modifier) {
     NossasPilulasTheme {
         //Titulo
         Column(modifier = Modifier
@@ -44,15 +47,17 @@ fun PaginaInicial(modifier: Modifier = Modifier) {
         Column(modifier = Modifier
             .fillMaxSize()
             .wrapContentSize(Alignment.BottomCenter)) {
-            AdicionaRemedio(modifier = Modifier
-                .fillMaxSize()
-                .wrapContentSize(Alignment.Center)
-            )
+            Button(onClick = { onAdicionarRemedioButtonClicked() }) {
+                Text("Adicionar Remedio")
+            }
         }
 
     }
 }
+@Composable
+fun AppNavigator(navController: NavHostController = rememberNavController()) {
 
+}
 @Composable
 fun Titulo(modifier: Modifier = Modifier){
     Column(
@@ -78,11 +83,12 @@ fun ListaRemedios(modifier: Modifier = Modifier){
         }
     }
 }
-
+enum class Paginas{
+    Inicial,
+    Cadastro
+}
+@Preview(showBackground = true)
 @Composable
-fun AdicionaRemedio(modifier: Modifier = Modifier){
-    Button(onClick = { /*TODO*/ }) {
-        Text("Adicionar Remedio")
-    }
-    val listaRemedio = mutableListOf<Remedio>()
+fun DefaultPreview() {
+    AppNavigator()
 }

@@ -2,6 +2,7 @@ package com.example.nossaspilulas
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -14,7 +15,6 @@ import androidx.compose.material3.Button
 import androidx.compose.ui.Alignment
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.res.stringResource
-import com.example.nossaspilulas.ui.theme.cadastro.CadastroUiState
 import com.example.nossaspilulas.ui.theme.cadastro.CadastroViewModel
 
 @Preview(showBackground = true)
@@ -25,12 +25,15 @@ fun Pagina_de_Cadastro(
 ){
     val cadastroUiState by cadastroViewModel.uiState.collectAsState()
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier.fillMaxSize()
+        .wrapContentSize(Alignment.Center)) {
         Informacoes(
             nome = cadastroUiState.nome,
             onNomeChange = {cadastroViewModel.atualizaNome(it)},
             intervalo = cadastroUiState.intervalo,
-            onIntervaloChange = { cadastroViewModel.atualizaIntervalo(it)}
+            onIntervaloChange = { cadastroViewModel.atualizaIntervalo(it)},
+            modifier = Modifier.fillMaxWidth()
+                .wrapContentSize(Alignment.Center)
         )
         Button(
             modifier = Modifier
@@ -53,8 +56,7 @@ fun Informacoes(
 ) {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .wrapContentSize(Alignment.TopStart)
+            .wrapContentSize(Alignment.TopCenter)
     ) {
         TextField(
             label = { Text(text = stringResource(R.string.Label_nome)) },
