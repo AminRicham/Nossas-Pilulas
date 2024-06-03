@@ -35,7 +35,9 @@ class MainActivity : ComponentActivity() {
                             })
                         }
                         composable(route = Paginas.Cadastro.name) {
-                            Pagina_de_Cadastro()
+                            Pagina_de_Cadastro(onConcluidoButtonClicked = {
+                                navController.popBackStack(Paginas.Inicial.name, false)
+                            })
                         }
                     }
                 }

@@ -8,7 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -17,9 +16,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.res.stringResource
 import com.example.nossaspilulas.ui.theme.cadastro.CadastroViewModel
 
-@Preview(showBackground = true)
+
 @Composable
 fun Pagina_de_Cadastro(
+    onConcluidoButtonClicked: () -> Unit,
     modifier: Modifier = Modifier,
     cadastroViewModel: CadastroViewModel = viewModel()
 ){
@@ -39,7 +39,7 @@ fun Pagina_de_Cadastro(
             modifier = Modifier
                 .fillMaxSize()
                 .wrapContentSize(Alignment.BottomCenter),
-            onClick = { cadastroViewModel.adiconaRemedio() }
+            onClick = { onConcluidoButtonClicked() }
         ) {
             Text(text = "Concluido")
         }

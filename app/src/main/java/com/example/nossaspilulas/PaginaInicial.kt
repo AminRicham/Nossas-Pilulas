@@ -14,10 +14,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.nossaspilulas.ui.theme.NossasPilulasTheme
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.nossaspilulas.ui.theme.cadastro.CadastroViewModel
 
 @Composable
 fun PaginaInicial(onAdicionarRemedioButtonClicked: () -> Unit,
@@ -54,10 +53,7 @@ fun PaginaInicial(onAdicionarRemedioButtonClicked: () -> Unit,
 
     }
 }
-@Composable
-fun AppNavigator(navController: NavHostController = rememberNavController()) {
 
-}
 @Composable
 fun Titulo(modifier: Modifier = Modifier){
     Column(
@@ -90,5 +86,13 @@ enum class Paginas{
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    AppNavigator()
+
+}
+
+private fun adicionaRemedioAndNavigateToStart(
+    viewModel: CadastroViewModel,
+    navController: NavHostController
+) {
+    viewModel.adiconaRemedio()
+    navController.popBackStack(Paginas.Inicial.name, false)
 }
